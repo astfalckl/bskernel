@@ -35,7 +35,7 @@ functions over the domain $[0, 0.5]$, and visualise both the basis and
 the autocovariance functions they induce.
 
 ``` r
-library(bskern)
+library(bskernel)
 library(ggplot2)
 library(tidyr)
 

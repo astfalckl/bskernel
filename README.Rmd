@@ -38,7 +38,7 @@ The `bskern` package provides tools for constructing autocovariance functions vi
 Below, we construct a set of 4 linear (degree 1) B-spline basis functions over the domain \([0, 0.5]\), and visualise both the basis and the autocovariance functions they induce.
 
 ```r
-library(bskern)
+library(bskernel)
 library(ggplot2)
 library(tidyr)
 
