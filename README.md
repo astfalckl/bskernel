@@ -1,19 +1,25 @@
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
-
 # bskernel
 
 <!-- badges: start -->
+
+![Lifecycle:
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)
+![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)
+
 <!-- badges: end -->
 
-The goal of bskernel is to …
+This package accompanies the manuscript *Universal Modelling of
+Auto-covariance Functions via Spline Kernels*. It provides the
+functionality to compute the ACF bases and spectral bases in closed
+form, as well as some handy tools for plotting and optimisation.
 
 ## Installation
 
-You can install the development version of bskernel like so:
+You can install the development version of **bskernel** from GitHub with
 
 ``` r
-# FILL THIS IN! HOW CAN PEOPLE INSTALL YOUR DEV PACKAGE?
+devtools::install_github("astfalckl/bskernel")
 ```
 
 ## Example
