@@ -35,32 +35,25 @@ The `bskern` package provides tools for constructing autocovariance functions vi
 
 Below, we construct a set of 4 linear (degree 1) B-spline basis functions over the domain \([0, 0.5]\), and visualise both the basis and the autocovariance functions they induce.
 
-```r plot-basis, fig.width=6, fig.height=4}
+```{r}
 library(bskernel)
 library(ggplot2)
 library(tidyr)
 
-# Parameters
-k <- 1  # linear B-splines
+k <- 1 
 n_basis <- 6
 domain <- c(0, 0.5)
 
-# Construct open knot vector
 dx <- diff(domain) / (n_basis - 1)
 knots <- seq(domain[1], domain[2], length.out = n_basis)
 
-print(domain)
-
-# Evaluate basis functions
 omega <- seq(domain[1], domain[2], length.out = 1000)
 B <- build_bspline_design_matrix(omega, knots, k)
 
-# Plot basis
-p <- plot_bspline_basis_ggplot(omega, B, k = k)
-print(p)
+plot_bspline_basis_ggplot(omega, B, k = k)
 ```
 
-```r
+```{r}
 # Compute autocovariance functions (first 4 basis elements)
 tau <- seq(0, 10, length.out = 500)
 acf_matrix <- sapply(0:3, function(i) {
