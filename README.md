@@ -1,13 +1,4 @@
 
-<!-- ```{r, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>",
-  fig.path = "man/figures/README-",
-  out.width = "100%"
-)
-``` -->
-
 # bskernel
 
 <!-- badges: start -->
@@ -33,8 +24,6 @@ devtools::install_github("astfalckl/bskernel")
 
 ## Example
 
-## B-spline Spectral Basis and Autocovariance Functions
-
 The `bskern` package provides tools for constructing autocovariance
 functions via the inverse Fourier transform of B-spline basis functions
 on the spectral domain.
@@ -43,53 +32,54 @@ Below, we construct a set of 4 linear (degree 1) B-spline basis
 functions over the domain $[0, 0.5]$, and visualise both the basis and
 the autocovariance functions they induce.
 
-``` r
-library(bskernel)
-library(ggplot2)
-library(tidyr)
+\`\`\`r plot-basis, fig.width=6, fig.height=4} library(bskernel)
+library(ggplot2) library(tidyr)
 
 # Parameters
-k <- 1  # linear B-splines
-n_basis <- 6
-domain <- c(0, 0.5)
+
+k \<- 1 \# linear B-splines n_basis \<- 6 domain \<- c(0, 0.5)
 
 # Construct open knot vector
-dx <- diff(domain) / (n_basis - 1)
-knots <- seq(domain[1], domain[2], length.out = n_basis)
+
+dx \<- diff(domain) / (n_basis - 1) knots \<- seq(domain\[1\],
+domain\[2\], length.out = n_basis)
+
+print(domain)
 
 # Evaluate basis functions
-omega <- seq(domain[1], domain[2], length.out = 1000)
-B <- build_bspline_design_matrix(omega, knots, k)
+
+omega \<- seq(domain\[1\], domain\[2\], length.out = 1000) B \<-
+build_bspline_design_matrix(omega, knots, k)
 
 # Plot basis
-plot_bspline_basis_ggplot(omega, B, k = k)
-```
 
-``` r
-# Compute autocovariance functions (first 4 basis elements)
-tau <- seq(0, 10, length.out = 500)
-acf_matrix <- sapply(0:3, function(i) {
-  Re(inverse_fourier_truncated_power(knots, i, k, tau))
-})
+p \<- plot_bspline_basis_ggplot(omega, B, k = k) print(p)
 
-acf_df <- as.data.frame(acf_matrix)
-acf_df$tau <- tau
 
-acf_long <- tidyr::pivot_longer(
-  acf_df,
-  cols = -tau,
-  names_to = "basis",
-  values_to = "acf"
-)
+    ```r
+    # Compute autocovariance functions (first 4 basis elements)
+    tau <- seq(0, 10, length.out = 500)
+    acf_matrix <- sapply(0:3, function(i) {
+      Re(inverse_fourier_truncated_power(knots, i, k, tau))
+    })
 
-# Plot ACFs
-ggplot(acf_long, aes(x = tau, y = acf, group = basis, linetype = basis)) +
-  geom_line() +
-  labs(
-    x = expression(tau),
-    y = "Autocovariance",
-    title = paste("ACFs of linear B-spline basis functions (k =", k, ")")
-  ) +
-  theme_minimal() +
-  theme(legend.position = "none")
-```
+    acf_df <- as.data.frame(acf_matrix)
+    acf_df$tau <- tau
+
+    acf_long <- tidyr::pivot_longer(
+      acf_df,
+      cols = -tau,
+      names_to = "basis",
+      values_to = "acf"
+    )
+
+    # Plot ACFs
+    ggplot(acf_long, aes(x = tau, y = acf, group = basis, linetype = basis)) +
+      geom_line() +
+      labs(
+        x = expression(tau),
+        y = "Autocovariance",
+        title = paste("ACFs of linear B-spline basis functions (k =", k, ")")
+      ) +
+      theme_minimal() +
+      theme(legend.position = "none")
