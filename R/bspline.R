@@ -201,14 +201,15 @@ plot_bspline_basis_ggplot <- function(omega,design_matrix, k = NULL, logx = FALS
     values_to = "value"
   )
 
-  plt <- ggplot(basis_long, aes(x = omega, y = value, group = basis)) +
+  plt <- ggplot(basis_long, aes(x = omega, y = value, group = basis, linetype = basis)) +
     geom_line() +
     labs(
       x = expression(omega),
       y = "Basis value",
-      title = if (!is.null(k)) paste("B-spline basis functions (k =", k, ")") else "B-spline basis functions"
+      title = if (!is.null(k)) paste("B-spline basis functions ( k =", k, ")") else "B-spline basis functions"
     ) +
-    theme_minimal()
+    theme_minimal() +
+    theme(legend.position = "none")
 
   if (logx) plt <- plt + scale_x_continuous(trans = "log10")
   if (logy) plt <- plt + scale_y_continuous(trans = "log10")

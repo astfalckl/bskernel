@@ -24,33 +24,63 @@ devtools::install_github("astfalckl/bskernel")
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+## B-spline Spectral Basis and Autocovariance Functions
+
+The `bskern` package provides tools for constructing autocovariance
+functions via the inverse Fourier transform of B-spline basis functions
+on the spectral domain.
+
+Below, we construct a set of 4 linear (degree 1) B-spline basis
+functions over the domain $[0, 0.5]$, and visualise both the basis and
+the autocovariance functions they induce.
 
 ``` r
-library(bskernel)
-## basic example code
-```
+library(bskern)
+library(ggplot2)
+library(tidyr)
 
-What is special about using `README.Rmd` instead of just `README.md`?
-You can include R chunks like so:
+# Parameters
+k <- 1  # linear B-splines
+n_basis <- 6
+domain <- c(0, 0.5)
+
+# Construct open knot vector
+dx <- diff(domain) / (n_basis - 1)
+knots <- seq(domain[1], domain[2], length.out = n_basis)
+
+# Evaluate basis functions
+omega <- seq(domain[1], domain[2], length.out = 1000)
+B <- build_bspline_design_matrix(omega, knots, k)
+
+# Plot basis
+plot_bspline_basis_ggplot(omega, B, k = k)
+```
 
 ``` r
-summary(cars)
-#>      speed           dist       
-#>  Min.   : 4.0   Min.   :  2.00  
-#>  1st Qu.:12.0   1st Qu.: 26.00  
-#>  Median :15.0   Median : 36.00  
-#>  Mean   :15.4   Mean   : 42.98  
-#>  3rd Qu.:19.0   3rd Qu.: 56.00  
-#>  Max.   :25.0   Max.   :120.00
+# Compute autocovariance functions (first 4 basis elements)
+tau <- seq(0, 10, length.out = 500)
+acf_matrix <- sapply(0:3, function(i) {
+  Re(inverse_fourier_truncated_power(knots, i, k, tau))
+})
+
+acf_df <- as.data.frame(acf_matrix)
+acf_df$tau <- tau
+
+acf_long <- tidyr::pivot_longer(
+  acf_df,
+  cols = -tau,
+  names_to = "basis",
+  values_to = "acf"
+)
+
+# Plot ACFs
+ggplot(acf_long, aes(x = tau, y = acf, group = basis, linetype = basis)) +
+  geom_line() +
+  labs(
+    x = expression(tau),
+    y = "Autocovariance",
+    title = paste("ACFs of linear B-spline basis functions (k =", k, ")")
+  ) +
+  theme_minimal() +
+  theme(legend.position = "none")
 ```
-
-You’ll still need to render `README.Rmd` regularly, to keep `README.md`
-up-to-date. `devtools::build_readme()` is handy for this.
-
-You can also embed plots, for example:
-
-<img src="man/figures/README-pressure-1.png" width="100%" />
-
-In that case, don’t forget to commit and push the resulting figure
-files, so they display on GitHub and CRAN.
