@@ -5,3 +5,5 @@
 .DS_Store
 .quarto
 helper.R
+docs
+inst/doc

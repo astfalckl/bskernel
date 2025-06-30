@@ -75,7 +75,7 @@ ggplot(acf_long, aes(x = tau, y = acf, group = basis, linetype = basis)) +
   labs(
     x = expression(tau),
     y = "Autocovariance",
-    title = paste("ACFs of linear B-spline basis functions (k =", k, ")")
+    title = paste("ACFs of linear B-spline basis functions ( k =", k, ")")
   ) +
   theme_minimal() +
   theme(legend.position = "none")
