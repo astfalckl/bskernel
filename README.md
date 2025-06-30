@@ -17,7 +17,7 @@ GitHub repo, please navigate
 
 ## Installation
 
-You can install the development version of **bskernel** from GitHub with
+You can install the development version of `bskernel` from GitHub with
 
 ``` r
 devtools::install_github("astfalckl/bskernel")
@@ -25,12 +25,12 @@ devtools::install_github("astfalckl/bskernel")
 
 ## Quickstart
 
-The **bskernel** package provides tools for constructing auto-covariance
+The `bskernel` package provides tools for constructing auto-covariance
 functions via the inverse Fourier transform of B-spline basis functions
 on the spectral domain. The workhorse functions are
 
-- <tt>build_bspline_design_matrix</tt>
-- <tt>reconstruct_acf</tt>
+- `build_bspline_design_matrix`
+- `reconstruct_acf`
 
 Below is a minimal example that recreates Figure 1 of the paper.
 
@@ -39,8 +39,8 @@ library(bskernel)
 
 k <- 1 
 knots <- seq(-0.125, 0.5, 0.125)
-omega <- seq(0, 0.5, length.out = 1000)
-tau <- seq(0, 10, length = 100)
+omega <- seq(0, 0.5, length.out = 100)
+tau <- seq(0, 7.5, length = 100)
 
 spline_bases <- build_bspline_design_matrix(omega, knots, k)
 
@@ -51,9 +51,9 @@ acfs <- sapply(1:4, function(i){
 })
 ```
 
-Note that <tt>reconstruct_acf</tt> is designed to summate over a bases
+Note that `reconstruct_acf()` is designed to summate over a bases
 expansion, here we iteratively select the basis member. The spline and
-acf bases are plotted below (plotting code is suppressed, see .Rmd
+acf bases are plotted below (plotting code is suppressed, see `.Rmd`
 file).
 
 <img src="man/figures/README-unnamed-chunk-3-1.png" width="100%" />

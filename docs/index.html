@@ -66,17 +66,17 @@
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
-<p>You can install the development version of <strong>bskernel</strong> from GitHub with</p>
+<p>You can install the development version of <code>bskernel</code> from GitHub with</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"astfalckl/bskernel"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="quickstart">Quickstart<a class="anchor" aria-label="anchor" href="#quickstart"></a>
 </h2>
-<p>The <strong>bskernel</strong> package provides tools for constructing auto-covariance functions via the inverse Fourier transform of B-spline basis functions on the spectral domain. The workhorse functions are</p>
+<p>The <code>bskernel</code> package provides tools for constructing auto-covariance functions via the inverse Fourier transform of B-spline basis functions on the spectral domain. The workhorse functions are</p>
 <ul>
-<li><tt>build_bspline_design_matrix</tt></li>
-<li><tt>reconstruct_acf</tt></li>
+<li><code>build_bspline_design_matrix</code></li>
+<li><code>reconstruct_acf</code></li>
 </ul>
 <p>Below is a minimal example that recreates Figure 1 of the paper.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
@@ -84,8 +84,8 @@
 <span></span>
 <span><span class="va">k</span> <span class="op">&lt;-</span> <span class="fl">1</span> </span>
 <span><span class="va">knots</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="op">-</span><span class="fl">0.125</span>, <span class="fl">0.5</span>, <span class="fl">0.125</span><span class="op">)</span></span>
-<span><span class="va">omega</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0.5</span>, length.out <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span></span>
-<span><span class="va">tau</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">10</span>, length <span class="op">=</span> <span class="fl">100</span><span class="op">)</span></span>
+<span><span class="va">omega</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0.5</span>, length.out <span class="op">=</span> <span class="fl">100</span><span class="op">)</span></span>
+<span><span class="va">tau</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">7.5</span>, length <span class="op">=</span> <span class="fl">100</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">spline_bases</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/build_bspline_design_matrix.html">build_bspline_design_matrix</a></span><span class="op">(</span><span class="va">omega</span>, <span class="va">knots</span>, <span class="va">k</span><span class="op">)</span></span>
 <span></span>
@@ -94,7 +94,7 @@
 <span>  <span class="va">idx</span><span class="op">[</span><span class="va">i</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fl">1</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/complex.html" class="external-link">Re</a></span><span class="op">(</span><span class="fu"><a href="reference/reconstruct_acf.html">reconstruct_acf</a></span><span class="op">(</span><span class="va">idx</span>, <span class="va">knots</span>, <span class="va">k</span>, <span class="va">tau</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="op">}</span><span class="op">)</span></span></code></pre></div>
-<p>Note that <tt>reconstruct_acf</tt> is designed to summate over a bases expansion, here we iteratively select the basis member. The spline and acf bases are plotted below (plotting code is suppressed, see .Rmd file).</p>
+<p>Note that <code><a href="reference/reconstruct_acf.html">reconstruct_acf()</a></code> is designed to summate over a bases expansion, here we iteratively select the basis member. The spline and acf bases are plotted below (plotting code is suppressed, see <code>.Rmd</code> file).</p>
 <p><img src="reference/figures/README-unnamed-chunk-3-1.png" width="100%"></p>
 </div>
 <div class="section level2">
