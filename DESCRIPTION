@@ -1,10 +1,10 @@
 Package: bskernel
-Title: What the Package Does (One Line, Title Case)
+Title: Flexible Auto-covariance Construction via Spline Kernels
 Version: 0.0.0.9000
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
+    person("Lachlan", "Astfalck", , "lachlan.astfalck@uwa.edu.au", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-8369-9384"))
+Description: This package provides flexible auto-covariance kernel construction via inverse Fourier transforms of B-spline bases, as well as some handy tools for optimisation. It accompanies the paper ''Universal approximation of auto-covariance functions via spline kernels''.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)

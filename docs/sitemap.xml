@@ -1,54 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>/404.html</loc>
+    <loc>https://astfalckl.github.io/bskernel/404.html</loc>
   </url>
   <url>
-    <loc>/LICENSE-text.html</loc>
+    <loc>https://astfalckl.github.io/bskernel/LICENSE-text.html</loc>
   </url>
   <url>
-    <loc>/LICENSE.html</loc>
+    <loc>https://astfalckl.github.io/bskernel/LICENSE.html</loc>
   </url>
   <url>
-    <loc>/articles/index.html</loc>
+    <loc>https://astfalckl.github.io/bskernel/articles/articles/index.html</loc>
   </url>
   <url>
-    <loc>/articles/intro.html</loc>
+    <loc>https://astfalckl.github.io/bskernel/articles/index.html</loc>
   </url>
   <url>
-    <loc>/authors.html</loc>
+    <loc>https://astfalckl.github.io/bskernel/articles/intro.html</loc>
   </url>
   <url>
-    <loc>/index.html</loc>
+    <loc>https://astfalckl.github.io/bskernel/authors.html</loc>
   </url>
   <url>
-    <loc>/reference/bskernel-package.html</loc>
+    <loc>https://astfalckl.github.io/bskernel/index.html</loc>
   </url>
   <url>
-    <loc>/reference/bspline_alpha_rule.html</loc>
+    <loc>https://astfalckl.github.io/bskernel/reference/bskernel-package.html</loc>
   </url>
   <url>
-    <loc>/reference/bspline_normalisation_constant.html</loc>
+    <loc>https://astfalckl.github.io/bskernel/reference/bspline_alpha_rule.html</loc>
   </url>
   <url>
-    <loc>/reference/build_bspline_design_matrix.html</loc>
+    <loc>https://astfalckl.github.io/bskernel/reference/bspline_normalisation_constant.html</loc>
   </url>
   <url>
-    <loc>/reference/evaluate_bspline_basis.html</loc>
+    <loc>https://astfalckl.github.io/bskernel/reference/build_bspline_design_matrix.html</loc>
   </url>
   <url>
-    <loc>/reference/index.html</loc>
+    <loc>https://astfalckl.github.io/bskernel/reference/evaluate_bspline_basis.html</loc>
   </url>
   <url>
-    <loc>/reference/inverse_fourier_truncated_power.html</loc>
+    <loc>https://astfalckl.github.io/bskernel/reference/index.html</loc>
   </url>
   <url>
-    <loc>/reference/plot_bspline_basis_ggplot.html</loc>
+    <loc>https://astfalckl.github.io/bskernel/reference/inverse_fourier_truncated_power.html</loc>
   </url>
   <url>
-    <loc>/reference/reconstruct_acf.html</loc>
+    <loc>https://astfalckl.github.io/bskernel/reference/plot_bspline_basis_ggplot.html</loc>
   </url>
   <url>
-    <loc>/reference/truncated_power.html</loc>
+    <loc>https://astfalckl.github.io/bskernel/reference/reconstruct_acf.html</loc>
+  </url>
+  <url>
+    <loc>https://astfalckl.github.io/bskernel/reference/truncated_power.html</loc>
   </url>
 </urlset>

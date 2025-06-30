@@ -4,12 +4,19 @@
 \name{bskernel-package}
 \alias{bskernel}
 \alias{bskernel-package}
-\title{bskernel: What the Package Does (One Line, Title Case)}
+\title{bskernel: Flexible Auto-covariance Construction via Spline Kernels}
 \description{
-What the package does (one paragraph).
+This package provides flexible auto-covariance kernel construction via inverse Fourier transforms of B-spline bases, as well as some handy tools for optimisation. It accompanies the paper ''Universal approximation of auto-covariance functions via spline kernels''.
+}
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://astfalckl.github.io/bskernel/}
+}
+
 }
 \author{
-\strong{Maintainer}: First Last \email{first.last@example.com} (\href{https://orcid.org/YOUR-ORCID-ID}{ORCID})
+\strong{Maintainer}: Lachlan Astfalck \email{lachlan.astfalck@uwa.edu.au} (\href{https://orcid.org/0000-0002-8369-9384}{ORCID})
 
 }
 \keyword{internal}

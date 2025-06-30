@@ -83,5 +83,5 @@ reconstruct_acf <- function(c, knots, k, tau) {
   }
 
   acf[1] <- sum(c)  # enforce correct variance at lag zero
-  return(2 * Re(acf))   # autocovariance is real-valued
+  return(acf)   # autocovariance is real-valued
 }
