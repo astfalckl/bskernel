@@ -18,3 +18,4 @@ Imports:
     ggplot2,
     tidyr
 VignetteBuilder: knitr
+URL: https://astfalckl.github.io/bskernel/

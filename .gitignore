@@ -6,3 +6,4 @@
 .quarto
 helper.R
 # inst/doc
+docs
