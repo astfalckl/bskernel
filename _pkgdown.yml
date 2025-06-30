@@ -4,3 +4,4 @@ template:
   light-switch: true
   theme: arrow-light
   theme-dark: arrow-dark
+  logo: man/figures/logo.png
