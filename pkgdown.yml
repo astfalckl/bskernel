@@ -3,7 +3,7 @@ pkgdown: 2.1.3
 pkgdown_sha: ~
 articles:
   intro: intro.html
-last_built: 2025-06-30T16:45Z
+last_built: 2025-07-01T08:00Z
 urls:
   reference: https://astfalckl.github.io/bskernel/reference
   article: https://astfalckl.github.io/bskernel/articles
