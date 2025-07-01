@@ -19,3 +19,22 @@ truncated_power <- function(x, kappa, k) {
   out[x < kappa] <- 0
   return(out)
 }
+
+#' Offset Logarithm Transform
+#'
+#' Computes a log-transformation of \code{x} with a small positive bias \code{b},
+#' and an optional logarithmic \code{base}.
+#'
+#' @param x A numeric vector or matrix of values to transform.
+#' @param b A small positive offset added to \code{x} before applying the logarithm. Defaults to \code{1e-6}.
+#' @param base The base of the logarithm. Defaults to \code{10}.
+#'
+#' @return A numeric vector or matrix with the log-transformed values.
+#'
+#' @examples
+#' logbp(1:10)
+#' logbp(0, b = 1e-4)
+#' logbp(c(0.1, 1, 10), base = exp(1))
+#'
+#' @export
+logbp <- function(x, b = 1e-6, base = 10^1) log(x + b, base)

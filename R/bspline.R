@@ -179,11 +179,6 @@ build_bspline_design_matrix <- function(omega, knots, k) {
 #'
 #' @return A \code{ggplot} object displaying each basis function as a line.
 #'
-#' @examples
-#' knots <- c(0, 1, 2, 3, 4, 5)
-#' omega <- seq(0.1, 5, length.out = 100)
-#' B <- build_bspline_design_matrix(omega, knots, k = 1)
-#' plot_bspline_basis_ggplot(omega, B, k = 1)
 #'
 #' @importFrom ggplot2 ggplot aes geom_line labs scale_x_continuous scale_y_continuous theme_minimal
 #' @importFrom tidyr pivot_longer

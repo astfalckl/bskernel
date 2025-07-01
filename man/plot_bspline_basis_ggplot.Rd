@@ -30,10 +30,3 @@ A \code{ggplot} object displaying each basis function as a line.
 Plots a B-spline design matrix using \code{ggplot2}, optionally applying log scales
 to the x or y axes. Each column of the matrix is treated as a separate basis function.
 }
-\examples{
-knots <- c(0, 1, 2, 3, 4, 5)
-omega <- seq(0.1, 5, length.out = 100)
-B <- build_bspline_design_matrix(omega, knots, k = 1)
-plot_bspline_basis_ggplot(omega, B, k = 1)
-
-}

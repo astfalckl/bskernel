@@ -26,7 +26,7 @@ and equal to \((x - \kappa)^k_+\) otherwise. Commonly used in spline basis const
 <li class="nav-item dropdown">
   <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
   <div class="dropdown-menu" aria-labelledby="dropdown-articles">
-    <a class="dropdown-item" href="../articles/intro.html">intro</a>
+    <a class="dropdown-item" href="../articles/ml_gaussian.html">ML with Gaussian Likelihood</a>
   </div>
 </li>
       </ul><form class="form-inline my-2 my-lg-0" role="search">
@@ -79,8 +79,9 @@ and equal to \((x - \kappa)^k_+\) otherwise. Commonly used in spline basis const
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">2</span>, by <span class="op">=</span> <span class="fl">0.1</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">truncated_power</span><span class="op">(</span><span class="va">x</span>, kappa <span class="op">=</span> <span class="fl">1</span>, k <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.01 0.04 0.09 0.16</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [16] 0.25 0.36 0.49 0.64 0.81 1.00</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>restarting interrupted promise evaluation</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>internal error -3 in R_decompress1</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in eval(expr, envir, enclos):</span> lazy-load database '/Library/Frameworks/R.framework/Versions/4.3-arm64/Resources/library/bskernel/R/bskernel.rdb' is corrupt</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

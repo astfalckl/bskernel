@@ -62,6 +62,8 @@ file).
 
 I have written a number of tutorials:
 
+- [Maximum Likelihood with the Gaussian
+  Likelihood](reference/articles/ml_gaussian.html)
 - [Function reference](reference/index.html)
 
 ### Citation

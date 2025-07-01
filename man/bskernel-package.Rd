@@ -6,6 +6,8 @@
 \alias{bskernel-package}
 \title{bskernel: Flexible Auto-covariance Construction via Spline Kernels}
 \description{
+\if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
+
 This package provides flexible auto-covariance kernel construction via inverse Fourier transforms of B-spline bases, as well as some handy tools for optimisation. It accompanies the paper ''Universal approximation of auto-covariance functions via spline kernels''.
 }
 \seealso{

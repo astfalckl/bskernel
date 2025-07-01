@@ -13,7 +13,7 @@
     <loc>https://astfalckl.github.io/bskernel/articles/index.html</loc>
   </url>
   <url>
-    <loc>https://astfalckl.github.io/bskernel/articles/intro.html</loc>
+    <loc>https://astfalckl.github.io/bskernel/articles/ml_gaussian.html</loc>
   </url>
   <url>
     <loc>https://astfalckl.github.io/bskernel/authors.html</loc>
@@ -34,6 +34,12 @@
     <loc>https://astfalckl.github.io/bskernel/reference/build_bspline_design_matrix.html</loc>
   </url>
   <url>
+    <loc>https://astfalckl.github.io/bskernel/reference/compute_toeplitz_loglik.html</loc>
+  </url>
+  <url>
+    <loc>https://astfalckl.github.io/bskernel/reference/compute_toeplitz_loglik_grad.html</loc>
+  </url>
+  <url>
     <loc>https://astfalckl.github.io/bskernel/reference/evaluate_bspline_basis.html</loc>
   </url>
   <url>
@@ -41,6 +47,12 @@
   </url>
   <url>
     <loc>https://astfalckl.github.io/bskernel/reference/inverse_fourier_truncated_power.html</loc>
+  </url>
+  <url>
+    <loc>https://astfalckl.github.io/bskernel/reference/logbp.html</loc>
+  </url>
+  <url>
+    <loc>https://astfalckl.github.io/bskernel/reference/optim_toeplitz_mle.html</loc>
   </url>
   <url>
     <loc>https://astfalckl.github.io/bskernel/reference/plot_bspline_basis_ggplot.html</loc>
