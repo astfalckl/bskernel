@@ -1,6 +1,6 @@
 bibentry(
   bibtype  = "Article",
-  title    = "Universal approximation of auto-covariance functions via spline kernels",
+  title    = "Universal modelling of auto-covariance functions via spline kernels",
   author   = "Lachlan Astfalck",
   journal  = "arXiv:2506.21953",
   year     = "2025",

@@ -68,7 +68,7 @@ I have written a number of tutorials:
 
 This package accompanies the paper
 
-LC Astfalck. (2025). *‘’Universal approximation of auto-covariance
-functions via spline kernels’’*. Submitted to the Journal of the Royal
-Statistical Society: Series B. [\[Available
+LC Astfalck. (2025). *‘’Universal modelling of auto-covariance functions
+via spline kernels’’*. Submitted to the Journal of the Royal Statistical
+Society: Series B. [\[Available
 here.\]](https://arxiv.org/abs/2506.21953)

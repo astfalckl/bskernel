@@ -57,7 +57,7 @@ acfs <- sapply(1:4, function(i){
 
 Note that `reconstruct_acf()` is designed to summate over a bases expansion, here we iteratively select the basis member. The spline and acf bases are plotted below (plotting code is suppressed, see `.Rmd` file).
 
-```{r, echo = FALSE, fig.height=3}
+```{r, echo = FALSE, fig.height=3, dpi = 300}
 library(ggplot2)
 library(patchwork)
 library(tidyr)
@@ -89,7 +89,7 @@ plot_spline <- ggplot(basis_long, aes(x = omega, y = value, group = basis, linet
     y = "Spectral Density",
     title = "Spline Bases"
   ) +
-  theme_minimal() +
+  theme_bw() +
   theme(legend.position = "none")
 
 plot_acf <- ggplot(
@@ -102,7 +102,7 @@ plot_acf <- ggplot(
     y = "Auto-covariance",
     title = "ACF Bases"
   ) +
-  theme_minimal() +
+  theme_bw() +
   theme(legend.position = "none")
 
 plot_spline + plot_acf
@@ -118,4 +118,4 @@ I have written a number of tutorials:
 
 This package accompanies the paper
 
-LC Astfalck. (2025). *''Universal approximation of auto-covariance functions via spline kernels''*. Submitted to the Journal of the Royal Statistical Society: Series B. [[Available here.]](https://arxiv.org/abs/2506.21953)
+LC Astfalck. (2025). *''Universal modelling of auto-covariance functions via spline kernels''*. Submitted to the Journal of the Royal Statistical Society: Series B. [[Available here.]](https://arxiv.org/abs/2506.21953)
