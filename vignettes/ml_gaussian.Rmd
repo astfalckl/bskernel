@@ -85,11 +85,10 @@ ggplot(acf_df, aes(x = tau, y = ACF, color = Source, linetype = Source)) +
   labs(
     x = expression(tau),
     y = "Autocovariance",
-    title = "ACF: True Matérn-3/2 vs. Spline Kernel Estimate"
+    title = "True Matérn-3/2 vs. Spline Kernel Estimate"
   ) +
   theme(
     legend.title = element_blank(),
-    plot.title = element_text(face = "bold"),
     legend.position = c(0.97, 0.97),
     legend.justification = c("right", "top"),
     legend.background = element_rect(fill = "white", colour = "black", linewidth = 0.3)
