@@ -3,7 +3,8 @@ pkgdown: 2.0.7
 pkgdown_sha: ~
 articles:
   ml_gaussian: ml_gaussian.html
-last_built: 2025-07-01T17:08Z
+  ml_whittle: ml_whittle.html
+last_built: 2025-07-02T16:30Z
 urls:
   reference: https://astfalckl.github.io/bskernel/reference
   article: https://astfalckl.github.io/bskernel/articles

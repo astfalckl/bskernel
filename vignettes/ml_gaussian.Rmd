@@ -2,7 +2,7 @@
 title: "ML with Gaussian Likelihood"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{intro}
+  %\VignetteIndexEntry{gaussian}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -74,7 +74,7 @@ library(ggplot2)
 acf_df <- data.frame(
   tau = tau,
   Matérn = mat32_acf,
-  Estimated = acf_est
+  'ML Gaussian' = acf_est
 ) %>%
   pivot_longer(cols = -tau, names_to = "Source", values_to = "ACF") %>%
   filter(tau < 20)

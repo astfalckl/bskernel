@@ -63,7 +63,12 @@ file).
 I have written a number of tutorials:
 
 - [Maximum Likelihood with the Gaussian
-  Likelihood](reference/articles/ml_gaussian.html)
+  Likelihood](articles/ml_gaussian.html)
+- [Maximum Likelihood with Whittle’s
+  Likelihood](articles/ml_whittle.html)
+
+Function reference can be found at
+
 - [Function reference](reference/index.html)
 
 ### Citation

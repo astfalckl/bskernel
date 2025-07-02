@@ -180,7 +180,7 @@ build_bspline_design_matrix <- function(omega, knots, k) {
 #' @return A \code{ggplot} object displaying each basis function as a line.
 #'
 #'
-#' @importFrom ggplot2 ggplot aes geom_line labs scale_x_continuous scale_y_continuous theme_minimal
+#' @importFrom ggplot2 ggplot aes geom_line labs scale_x_continuous scale_y_continuous theme_minimal theme
 #' @importFrom tidyr pivot_longer
 #' @export
 plot_bspline_basis_ggplot <- function(omega,design_matrix, k = NULL, logx = FALSE, logy = FALSE) {

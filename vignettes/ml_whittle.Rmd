@@ -1,0 +1,104 @@
+---
+title: "ML with Whittle Likelihood"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{whittle}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+We now provide a simple example of fitting an ACF to simulated time-series data by maximising Whittle's likelihood, a pseudo-likelihood that approximates the Gaussian likelihood in the Fourier domain. As discussed in the paper, this is particularly natural in fitting the spline kernels.
+
+As before, we simulate a stationary Gaussian process with a known Matérn-3/2 auto-covariance structure, and as again, we fit an auto-covariance model using the `bskernel` package, assuming linear ($k=1$) B-spline spectral basis.
+
+To use Whittle's likelihood, we require regularly sampled data, and so it is natural to use Toeplitz methods to speed up simulation. In what follows, I call the occasional function from `speccy`, this is some of my other software designed to handle a bunch of spectral/Fourier methods.
+
+```{r, echo = FALSE}
+set.seed(3)
+```
+
+---
+
+### Simulate a Gaussian process with known autocovariance
+
+Most of this is standard; we lean on the package `SuperGauss` to efficiently sample the GP and set `fft = FALSE` so that this sample is an exact draw. We then calculate the periodogram, note it's values are double here as we are only going to consider the folded periodogram in the positive frequencies, and we drop the 0th frequency element as it does behave well with Whittle's likelihood.
+
+```{r, message=FALSE, warning=FALSE}
+library(bskernel)
+library(dplyr)
+library(SuperGauss)
+library(speccy)
+
+matern32_cov <- function(d, range, sigma2) {
+  sqrt3_d <- sqrt(3) * d / range
+  sigma2 * (1 + sqrt3_d) * exp(-sqrt3_d)
+}
+
+n <- 2000
+n_knots <- 4
+range <- 2
+k <- 1
+b <- 0.1
+
+tau <- 0:(n - 1)
+mat32_acf <- matern32_cov(tau, range, sigma2 = 1)
+
+y <- SuperGauss::rnormtz(n = 1, mat32_acf, fft = FALSE)
+
+I <- 2 * speccy::periodogram(y)$estimate[-1]
+omegas <- speccy::periodogram(y)$ff[-1]
+```
+
+---
+
+### Estimate the ACF using Whittle's likelihood
+
+This runs similar as the Gaussian likelihood case, except, now, we are optimising the bases in the Fourier domain directly. The only potentially odd thing to note about this is how the basis matrix is formed, effectively, I'm folding the negative frequencies into the positive, and then we are going to fit to the positive frequencies.
+
+```{r, message=FALSE, warning=FALSE}
+knots <- c(-0.05, 0, 0.05, 0.1, 0.2, 0.3, 0.5, 0.7)
+c_init <- c(0.3, 0.2, 0.15, 0.15, 0.1, 0.1)
+
+B_pos <- build_bspline_design_matrix(omegas, knots = knots, k = k)
+B_neg <- build_bspline_design_matrix(-omegas, knots = knots, k = k)
+B <- B_pos + B_neg
+
+c_whittle <- optim_whittle(omegas, I, B, c0 = c_init)$c
+acf_est <- Re(reconstruct_acf(c_whittle, knots, k, tau))
+```
+
+```{r, echo = FALSE, fig.height=4, fig.width=5, message=FALSE, warning=FALSE}
+library(tidyr)
+library(ggplot2)
+
+acf_df <- data.frame(
+  tau = tau,
+  Matérn = mat32_acf,
+  'ML Whittle' = acf_est
+) %>%
+  pivot_longer(cols = -tau, names_to = "Source", values_to = "ACF") %>%
+  filter(tau < 20)
+
+ggplot(acf_df, aes(x = tau, y = ACF, color = Source, linetype = Source)) +
+  geom_line(linewidth = 1) +
+  theme_bw() +
+  labs(
+    x = expression(tau),
+    y = "Autocovariance",
+    title = "ACF: True Matérn-3/2 vs. Spline Kernel Estimate"
+  ) +
+  theme(
+    legend.title = element_blank(),
+    plot.title = element_text(face = "bold"),
+    legend.position = c(0.97, 0.97),
+    legend.justification = c("right", "top"),
+    legend.background = element_rect(fill = "white", colour = "black", linewidth = 0.3)
+  )
+```

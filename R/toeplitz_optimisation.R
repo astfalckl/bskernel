@@ -69,7 +69,7 @@ compute_toeplitz_loglik_grad <- function(
   tau <- 0:(n - 1)
   n_basis <- length(c)
 
-  acf <- reconstruct_acf(c, knots, k, tau) %>% Re()
+  acf <- Re(reconstruct_acf(c, knots, k, tau))
 
   dacf <- sapply(seq_len(n_basis) - 1, function(i) {
     Re(inverse_fourier_truncated_power(knots, i, k, tau))
@@ -116,7 +116,7 @@ compute_toeplitz_loglik_grad <- function(
 #'
 #' @export
 optim_toeplitz_mle <- function(c_init, knots, k, y) {
-  optim(
+  stats::optim(
     par = log(c_init),
     fn = function(log_c) {
       -compute_toeplitz_loglik(y, exp(log_c), knots, k)

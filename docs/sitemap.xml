@@ -16,6 +16,9 @@
     <loc>https://astfalckl.github.io/bskernel/articles/ml_gaussian.html</loc>
   </url>
   <url>
+    <loc>https://astfalckl.github.io/bskernel/articles/ml_whittle.html</loc>
+  </url>
+  <url>
     <loc>https://astfalckl.github.io/bskernel/authors.html</loc>
   </url>
   <url>
@@ -55,6 +58,9 @@
     <loc>https://astfalckl.github.io/bskernel/reference/optim_toeplitz_mle.html</loc>
   </url>
   <url>
+    <loc>https://astfalckl.github.io/bskernel/reference/optim_whittle.html</loc>
+  </url>
+  <url>
     <loc>https://astfalckl.github.io/bskernel/reference/plot_bspline_basis_ggplot.html</loc>
   </url>
   <url>
@@ -62,5 +68,11 @@
   </url>
   <url>
     <loc>https://astfalckl.github.io/bskernel/reference/truncated_power.html</loc>
+  </url>
+  <url>
+    <loc>https://astfalckl.github.io/bskernel/reference/whittle_loglik.html</loc>
+  </url>
+  <url>
+    <loc>https://astfalckl.github.io/bskernel/reference/whittle_loglik_grad.html</loc>
   </url>
 </urlset>

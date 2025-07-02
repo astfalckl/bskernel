@@ -38,3 +38,5 @@ truncated_power <- function(x, kappa, k) {
 #'
 #' @export
 logbp <- function(x, b = 1e-6, base = 10^1) log(x + b, base)
+
+utils::globalVariables(c("value", "basis"))
