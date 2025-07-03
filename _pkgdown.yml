@@ -1,7 +1,8 @@
 url: https://astfalckl.github.io/bskernel/
 template:
   bootstrap: 5
-  light-switch: true
+  light-switch: yes
   theme: arrow-light
   theme-dark: arrow-dark
   logo: man/figures/logo.png
+
